@@ -3,6 +3,7 @@
 #include "GameObject.h"
 #include <vector>
 #include "Framework/Component.h"
+#include "Math/Transform.h"
 
 using namespace std;
 

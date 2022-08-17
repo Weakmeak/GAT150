@@ -13,6 +13,40 @@ int main() {
 	initMem();
 	SetFilepath("../Assets");
 
+	#pragma region JSONtest
+	rapidjson::Document document;
+	bool success = json::Load("json.txt", document);
+	assert(success);
+
+	std::string str;
+	json::Get(document, "string", str);
+	std::cout << str << std::endl;
+
+	bool b;
+	json::Get(document, "boolean", b);
+	std::cout << b << std::endl;
+
+	int i1;
+	json::Get(document, "integer1", i1);
+	std::cout << i1 << std::endl;
+
+	int i2;
+	json::Get(document, "integer2", i2);
+	std::cout << i2 << std::endl;
+
+	float f;
+	json::Get(document, "float", f);
+	std::cout << f << std::endl;
+
+	Vector2 v2;
+	json::Get(document, "vector2", v2);
+	std::cout << v2 << std::endl;
+
+	Color color;
+	json::Get(document, "color", color);
+	std::cout << color << std::endl;
+	#pragma endregion
+
 	Engine::Instance().Register();
 	g_Ren.Initialize();
 	g_Sound.Initialize();

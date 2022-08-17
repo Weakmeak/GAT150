@@ -1,4 +1,7 @@
 #pragma once
+
+#include "Serial/json.h"
+
 #include "Input/InputSystem.h"
 
 #include "Math/MathUtils.h"

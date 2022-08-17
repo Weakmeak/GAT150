@@ -46,4 +46,12 @@ namespace digi {
 		actor->m_scene = this;
 		m_actors.push_back(std::move(actor));
 	}
+	bool Scene::Write(const rapidjson::Value& value) const
+	{
+		return true;
+	}
+	bool Scene::Read(const rapidjson::Value& value)
+	{
+		return true;
+	}
 }

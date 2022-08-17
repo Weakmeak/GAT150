@@ -33,6 +33,9 @@
     <Filter Include="Source Files\Resource">
       <UniqueIdentifier>{2fdb9c72-8a2a-41e0-88a6-f49e81e67281}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Serialization">
+      <UniqueIdentifier>{9a1febc0-78da-4c8f-8d34-c65061bf4109}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Math\MathUtils.cpp">
@@ -109,6 +112,9 @@
     </ClCompile>
     <ClCompile Include="Components\ModelComponent.cpp">
       <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Serial\json.cpp">
+      <Filter>Source Files\Serialization</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -217,6 +223,12 @@
     <ClInclude Include="Framework\Factory.h">
       <Filter>Source Files\Framework</Filter>
     </ClInclude>
+    <ClInclude Include="Serial\json.h">
+      <Filter>Source Files\Serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="Serial\Serializable.h">
+      <Filter>Source Files\Serialization</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\Build\Assets\Bullet.txt">
@@ -226,6 +238,9 @@
       <Filter>Resource Files</Filter>
     </Text>
     <Text Include="..\Build\Assets\Model.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="..\Build\Assets\json.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

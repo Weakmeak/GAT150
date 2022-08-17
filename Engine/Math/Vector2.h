@@ -69,6 +69,7 @@ namespace digi {
 	};
 
 	std::istream& operator >> (std::istream& stream, Vector2& out);
+	std::ostream& operator << (std::ostream& stream, const Vector2& v);
 
 	inline float Vector2::LengthSqr() { return (x * x) + (y * y); }
 	inline float Vector2::Length() { return std::sqrt(x * x + y * y); }

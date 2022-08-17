@@ -1,6 +1,7 @@
 #pragma once
 #include <list>
 #include <memory>
+#include "Serial/Serializable.h"
 #include "Game.h"
 #include "Actor.h"
 
@@ -10,7 +11,7 @@ namespace digi {
 	class Renderer; //forward declaration
 	class Game;
 
-	class Scene {
+	class Scene : public ISerializable{
 		public:
 			Scene() = default;
 			Scene(Game* game) { m_game = game; }
@@ -28,6 +29,10 @@ namespace digi {
 		private:
 			std::list<std::unique_ptr<Actor>> m_actors;
 			Game* m_game = nullptr;
+
+			// Inherited via ISerializable
+			virtual bool Write(const rapidjson::Value& value) const override;
+			virtual bool Read(const rapidjson::Value& value) override;
 	};
 
 	template<typename T>
