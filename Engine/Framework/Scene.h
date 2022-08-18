@@ -26,13 +26,12 @@ namespace digi {
 			T* GetActor();
 			
 			Game* GetGame() { return m_game; }
+
+			virtual bool Write(const rapidjson::Value& value) const override;
+			virtual bool Read(const rapidjson::Value& value) override;
 		private:
 			std::list<std::unique_ptr<Actor>> m_actors;
 			Game* m_game = nullptr;
-
-			// Inherited via ISerializable
-			virtual bool Write(const rapidjson::Value& value) const override;
-			virtual bool Read(const rapidjson::Value& value) override;
 	};
 
 	template<typename T>

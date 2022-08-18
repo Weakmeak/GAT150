@@ -14,19 +14,19 @@ namespace digi {
 
 		if (g_Input.GetKeyDown(key_left))
 		{
-			temp.x -= m_speed * g_Time.deltaTime;
+			temp.x -= speed * g_Time.deltaTime;
 		}
 		if (g_Input.GetKeyDown(key_right))
 		{
-			temp.x += m_speed * g_Time.deltaTime;
+			temp.x += speed * g_Time.deltaTime;
 		}
 		if (g_Input.GetKeyDown(key_up))
 		{
-			temp.y -= m_speed * g_Time.deltaTime;
+			temp.y -= speed * g_Time.deltaTime;
 		}
 		if (g_Input.GetKeyDown(key_down))
 		{
-			temp.y += m_speed * g_Time.deltaTime;
+			temp.y += speed * g_Time.deltaTime;
 		}
 		
 		/*
@@ -43,5 +43,15 @@ namespace digi {
 			AudioComponent* temp = m_owner->GetComponent<AudioComponent>();
 			if (temp) temp->Play();
 		}*/
+	}
+	bool PlayerComponent::Write(const rapidjson::Value& value) const
+	{
+		return false;
+	}
+	bool PlayerComponent::Read(const rapidjson::Value& value)
+	{
+		READ_DATA(value, speed);
+
+		return true;
 	}
 }

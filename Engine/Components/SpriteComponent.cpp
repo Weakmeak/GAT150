@@ -11,4 +11,12 @@ namespace digi {
 	void SpriteComponent::Update()
 	{
 	}
+	bool SpriteComponent::Write(const rapidjson::Value& value) const
+	{
+		return false;
+	}
+	bool SpriteComponent::Read(const rapidjson::Value& value)
+	{
+		return false;
+	}
 }

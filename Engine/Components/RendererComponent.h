@@ -3,7 +3,7 @@
 
 namespace digi {
 	class Renderer;
-	class RendererComponnent : public Component {
+	class RendererComponent : public Component {
 		public:
 			virtual void Draw(Renderer& renderer) = 0;
 	};

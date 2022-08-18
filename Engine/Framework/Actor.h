@@ -4,6 +4,7 @@
 #include <vector>
 #include "Framework/Component.h"
 #include "Math/Transform.h"
+#include "Serial/Serializable.h"
 
 using namespace std;
 
@@ -12,7 +13,7 @@ namespace digi {
 	class Scene;
 	class Renderer;
 
-	class Actor : public GameObject {
+	class Actor : public GameObject, public ISerializable {
 		public:
 			Actor() = default;
 			Actor(const Transform& trnsf) { m_trans = trnsf; }
@@ -24,8 +25,11 @@ namespace digi {
 			void addComponent(unique_ptr<Component> component);
 
 			float GetRadius() { return 0; }; // m_model.GetRadius()* std::max(m_trans.scale.x, m_trans.scale.y);
-			std::string GetTag() { return m_tag; };
-			void SetTag(const std::string& tag) { m_tag = tag; };
+			const std::string& GetTag() { return tag; };
+			void SetTag(const std::string& t) { tag = t; };
+
+			const std::string& GetName() { return name; };
+			void SetName(const std::string& n) { name = n; };
 
 			virtual void OnCollision(Actor* other) {};
 			Transform& GetTransform() { return m_trans; }
@@ -35,13 +39,18 @@ namespace digi {
 			template<typename T>
 			T* GetComponent();
 
+			// Inherited via ISerializable
+			virtual bool Write(const rapidjson::Value& value) const override;
+			virtual bool Read(const rapidjson::Value& value) override;
+
 			friend class Scene;
 
 		protected:
 			bool destroyed = false;
 
 			Transform m_trans;
-			std::string m_tag = "";
+			std::string tag = "";
+			std::string name;
 			Scene* m_scene = nullptr;
 			Actor* m_parent = nullptr;
 			Vector2 m_velocity;

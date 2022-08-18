@@ -6,7 +6,11 @@ namespace digi {
 		public:
 			PlayerComponent() = default;
 			void Update() override;
+
+			// Inherited via Component
+			virtual bool Write(const rapidjson::Value& value) const override;
+			virtual bool Read(const rapidjson::Value& value) override;
 		private:
-			float m_speed = 300;
+			float speed = 300;
 	};
 }

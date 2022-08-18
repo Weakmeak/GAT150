@@ -181,6 +181,7 @@
     <ClCompile Include="Math\MathUtils.cpp" />
     <ClCompile Include="Math\Matrix2x2.cpp" />
     <ClCompile Include="Math\Matrix3x3.cpp" />
+    <ClCompile Include="Math\Transform.cpp" />
     <ClCompile Include="Math\Vector2.cpp" />
     <ClCompile Include="Renderer\Font.cpp" />
     <ClCompile Include="Renderer\Model.cpp" />
@@ -230,10 +231,8 @@
     <ClInclude Include="Serial\Serializable.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\Build\Assets\Bullet.txt" />
-    <Text Include="..\Build\Assets\Enemy.txt" />
     <Text Include="..\Build\Assets\json.txt" />
-    <Text Include="..\Build\Assets\Model.txt" />
+    <Text Include="..\Build\Assets\level.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -12,4 +12,12 @@ namespace digi {
 	void AudioComponent::Stop()
 	{
 	}
+	bool AudioComponent::Write(const rapidjson::Value& value) const
+	{
+		return false;
+	}
+	bool AudioComponent::Read(const rapidjson::Value& value)
+	{
+		return false;
+	}
 }

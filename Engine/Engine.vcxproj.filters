@@ -116,6 +116,9 @@
     <ClCompile Include="Serial\json.cpp">
       <Filter>Source Files\Serialization</Filter>
     </ClCompile>
+    <ClCompile Include="Math\Transform.cpp">
+      <Filter>Source Files\Math</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Math\MathUtils.h">
@@ -231,16 +234,10 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\Build\Assets\Bullet.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="..\Build\Assets\Enemy.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="..\Build\Assets\Model.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
     <Text Include="..\Build\Assets\json.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="..\Build\Assets\level.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

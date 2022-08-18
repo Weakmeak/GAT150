@@ -2,6 +2,8 @@
 #include "rapidjson/document.h" 
 #include <string> 
 
+#define READ_DATA(value, data) digi::json::Get(value, #data, data);
+
 namespace digi
 {
 	struct Vector2;

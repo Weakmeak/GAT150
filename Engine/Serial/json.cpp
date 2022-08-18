@@ -111,12 +111,17 @@ namespace digi {
 			{
 				if (!array[i].IsFloat())
 				{
-
-					LOG("error reading json data (not a float) %s", name.c_str());
-					return false;
+					if (array[i].IsInt()) {
+						data[i] = (float)array[i].GetInt();
+					}
+					else {
+						LOG("error reading json data (not a number) %s", name.c_str());
+						return false;
+					}
 				}
-
-				data[i] = array[i].GetFloat();
+				else {
+					data[i] = array[i].GetFloat();
+				}
 			}
 
 			return true;

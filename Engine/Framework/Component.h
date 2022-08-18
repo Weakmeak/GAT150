@@ -1,9 +1,10 @@
 #pragma once
 #include "GameObject.h"
+#include "Serial/Serializable.h"
 
 namespace digi {
 	class Actor; 
-	class Component : public GameObject {
+	class Component : public GameObject, public ISerializable {
 		public:
 			Component() = default;
 			friend class Actor;

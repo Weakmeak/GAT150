@@ -1,0 +1,30 @@
+{
+   "actors":[
+      {
+         "type":"Actor",
+         "name":"Player",
+         "tag":"Player",
+         "transform":{
+            "position":[
+               400,
+               300
+            ],
+            "scale":[
+               2,
+               2
+            ],
+            "rotation":0
+         },
+         "components":[
+            {
+               "type":"PlayerComponent",
+               "speed":200
+            },
+            {
+               "type":"ModelComponent",
+               "model_name":"Ship.txt"
+            }
+         ]
+      }
+   ]
+}

@@ -1,6 +1,8 @@
 #include "Scene.h"
 #include "Actor.h"
 #include "Renderer/Renderer.h"
+#include "Framework/Factory.h"
+
 
 namespace digi {
 	void Scene::Update()
@@ -52,6 +54,21 @@ namespace digi {
 	}
 	bool Scene::Read(const rapidjson::Value& value)
 	{
+		if (!value.HasMember("actors") || !value["actors"].IsArray()) {
+			return false;
+		}
+		
+		//read actors
+		for (auto& actVal : value["actors"].GetArray()) {
+			std::string type;
+			READ_DATA(actVal, type);
+
+			auto actor = Factory::Instance().Create<Actor>(type);
+			if (actor) {
+				actor->Read(actVal);
+				Add(std::move(actor));
+			}
+		}
 		return true;
 	}
 }
