@@ -45,6 +45,24 @@ namespace digi
         return Create(renderer, filename);
     }
 
+    bool Texture::CreateFromSurface(SDL_Surface* surface, Renderer& renderer)
+    {
+        // destroy the current texture if one exists 
+        if (m_texture) SDL_DestroyTexture(m_texture);
+
+        // create texture 
+        m_texture = SDL_CreateTextureFromSurface(renderer.m_renderer, surface);
+
+        SDL_FreeSurface(surface);
+            if (!m_texture)
+            {
+                LOG(SDL_GetError());
+                return false;
+            }
+
+        return true;
+    }
+
     digi::Vector2 Texture::GetSize() const
     {
         SDL_Point point;

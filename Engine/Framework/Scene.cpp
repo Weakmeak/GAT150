@@ -17,25 +17,10 @@ namespace digi {
 				iter++;
 			}
 		}
-
-		//check collide
-		for (auto iter1 = m_actors.begin(); iter1 != m_actors.end(); iter1++) 
-		{
-			for (auto iter2 = m_actors.begin(); iter2 != m_actors.end(); iter2++) 
-			{
-				if (iter1 == iter2) continue;
-
-				float rad = (*iter1)->GetRadius() + (*iter2)->GetRadius();
-				float dist = (*iter1)->m_trans.position.Distance((*iter2)->m_trans.position);
-
-				if (dist < rad) { //collision!
-					//std::cout << "Collision!" << std::endl;
-
-					(*iter1)->OnCollision((*iter2).get());
-					(*iter2)->OnCollision((*iter1).get());
-				}
-			}
-		}
+	}
+	void Scene::Initialize()
+	{
+		for (auto& act : m_actors) { act->Initialize(); }
 	}
 	void Scene::Draw(Renderer& ren)
 	{
@@ -47,6 +32,10 @@ namespace digi {
 	{
 		actor->m_scene = this;
 		m_actors.push_back(std::move(actor));
+	}
+	void Scene::RemoveAll()
+	{
+		m_actors.clear();
 	}
 	bool Scene::Write(const rapidjson::Value& value) const
 	{
@@ -66,7 +55,17 @@ namespace digi {
 			auto actor = Factory::Instance().Create<Actor>(type);
 			if (actor) {
 				actor->Read(actVal);
-				Add(std::move(actor));
+
+				bool prefab = false;
+				READ_DATA(actVal, prefab);
+
+				if (prefab) {
+					std::string temp = actor->GetName();
+					Factory::Instance().RegisterPrefab(temp, std::move(actor));
+				}
+				else {
+					Add(std::move(actor));
+				}
 			}
 		}
 		return true;

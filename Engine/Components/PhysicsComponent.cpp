@@ -4,10 +4,10 @@
 namespace digi {
 	void PhysicsComponent::Update()
 	{
-		m_velocity += m_Accel * g_Time.deltaTime;
-		m_owner->GetTransform().position += m_velocity * g_Time.deltaTime;
-		m_velocity *= m_damp;
-		m_Accel = Vector2::zero;
+		Velocity += Accel * g_Time.deltaTime;
+		m_owner->GetTransform().position += Velocity * g_Time.deltaTime;
+		Velocity *= damping;
+		Accel = Vector2::zero;
 	}
 	bool PhysicsComponent::Write(const rapidjson::Value& value) const
 	{
@@ -15,6 +15,9 @@ namespace digi {
 	}
 	bool PhysicsComponent::Read(const rapidjson::Value& value)
 	{
-		return false;
+		READ_DATA(value, damping);
+		READ_DATA(value, Accel);
+		READ_DATA(value, Velocity);
+		return true;
 	}
 }

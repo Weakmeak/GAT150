@@ -10,6 +10,7 @@ namespace digi {
 			friend class Actor;
 
 			virtual void Update() = 0;
+			virtual void Initialize() override {};
 		protected:
 			Actor* m_owner = nullptr;
 	};

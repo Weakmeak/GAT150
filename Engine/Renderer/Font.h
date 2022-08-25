@@ -1,12 +1,13 @@
 #pragma once 
-// !! add necessary includes 
 #include "Resource/Resource.h"
 #include <string>
-// !! forward declare the _TTF_Font struct 
+
 struct _TTF_Font;
+struct SDL_Surface;
 
 namespace digi
 {
+	struct Color;
 	class Font : public Resource
 	{
 	public:
@@ -15,7 +16,10 @@ namespace digi
 		~Font();
 
 		bool Create(std::string filename, ...) override;
+		bool Create(std::string filename, int fontSize);
 		void Load(const std::string& filename, int fontSize);
+
+		SDL_Surface* CreateSurface(const std::string& text, const Color& color);
 
 		friend class Text;
 	private:

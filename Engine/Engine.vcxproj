@@ -76,7 +76,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Third Party\SDL2-2.0.22\include;$(SolutionDir)Third Party\fmod\core\inc;$(ProjectDir);$(SolutionDir)Third Party\rapidjson\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Third Party\SDL2-2.0.22\include;$(SolutionDir)Third Party\fmod\core\inc;$(ProjectDir);$(SolutionDir)Third Party\rapidjson\include;$(SolutionDir)Third Party\box2d\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -85,10 +85,10 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_ttf.lib;fmod_vc.lib;SDL2_image.lib </AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_ttf.lib;fmod_vc.lib;SDL2_image.lib;box2d.lib</AdditionalDependencies>
     </Lib>
     <Lib>
-      <AdditionalLibraryDirectories>$(SolutionDir)Third Party\SDL2-2.0.22\lib\$(PlatformTarget);$(SolutionDir)Third Party\fmod\core\lib\$(PlatformTarget)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Third Party\SDL2-2.0.22\lib\$(PlatformTarget);$(SolutionDir)Third Party\fmod\core\lib\$(PlatformTarget);$(SolutionDir)Third Party\box2d\lib</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -99,7 +99,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Third Party\SDL2-2.0.22\include;$(SolutionDir)Third Party\fmod\core\inc;$(ProjectDir);$(SolutionDir)Third Party\rapidjson\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Third Party\SDL2-2.0.22\include;$(SolutionDir)Third Party\fmod\core\inc;$(ProjectDir);$(SolutionDir)Third Party\rapidjson\include;$(SolutionDir)Third Party\box2d\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -110,10 +110,10 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_ttf.lib;fmod_vc.lib;SDL2_image.lib </AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_ttf.lib;fmod_vc.lib;SDL2_image.lib;box2d.lib</AdditionalDependencies>
     </Lib>
     <Lib>
-      <AdditionalLibraryDirectories>$(SolutionDir)Third Party\SDL2-2.0.22\lib\$(PlatformTarget);$(SolutionDir)Third Party\fmod\core\lib\$(PlatformTarget)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Third Party\SDL2-2.0.22\lib\$(PlatformTarget);$(SolutionDir)Third Party\fmod\core\lib\$(PlatformTarget);$(SolutionDir)Third Party\box2d\lib</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -122,7 +122,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Third Party\SDL2-2.0.22\include;$(SolutionDir)Third Party\fmod\core\inc;$(ProjectDir);$(SolutionDir)Third Party\rapidjson\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Third Party\SDL2-2.0.22\include;$(SolutionDir)Third Party\fmod\core\inc;$(ProjectDir);$(SolutionDir)Third Party\rapidjson\include;$(SolutionDir)Third Party\box2d\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -131,10 +131,10 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_ttf.lib;fmod_vc.lib;SDL2_image.lib </AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_ttf.lib;fmod_vc.lib;SDL2_image.lib;box2d.lib</AdditionalDependencies>
     </Lib>
     <Lib>
-      <AdditionalLibraryDirectories>$(SolutionDir)Third Party\SDL2-2.0.22\lib\$(PlatformTarget);$(SolutionDir)Third Party\fmod\core\lib\$(PlatformTarget)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Third Party\SDL2-2.0.22\lib\$(PlatformTarget);$(SolutionDir)Third Party\fmod\core\lib\$(PlatformTarget);$(SolutionDir)Third Party\box2d\lib</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -145,7 +145,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Third Party\SDL2-2.0.22\include;$(SolutionDir)Third Party\fmod\core\inc;$(ProjectDir);$(SolutionDir)Third Party\rapidjson\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Third Party\SDL2-2.0.22\include;$(SolutionDir)Third Party\fmod\core\inc;$(ProjectDir);$(SolutionDir)Third Party\rapidjson\include;$(SolutionDir)Third Party\box2d\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -156,19 +156,24 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_ttf.lib;fmod_vc.lib;SDL2_image.lib </AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_ttf.lib;fmod_vc.lib;SDL2_image.lib;box2d.lib</AdditionalDependencies>
     </Lib>
     <Lib>
-      <AdditionalLibraryDirectories>$(SolutionDir)Third Party\SDL2-2.0.22\lib\$(PlatformTarget);$(SolutionDir)Third Party\fmod\core\lib\$(PlatformTarget)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Third Party\SDL2-2.0.22\lib\$(PlatformTarget);$(SolutionDir)Third Party\fmod\core\lib\$(PlatformTarget);$(SolutionDir)Third Party\box2d\lib</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Audio\AudioChannel.cpp" />
     <ClCompile Include="Audio\AudioSystem.cpp" />
     <ClCompile Include="Components\AudioComponent.cpp" />
+    <ClCompile Include="Components\CollisionComponent.cpp" />
     <ClCompile Include="Components\ModelComponent.cpp" />
     <ClCompile Include="Components\PhysicsComponent.cpp" />
     <ClCompile Include="Components\PlayerComponent.cpp" />
+    <ClCompile Include="Components\rbPhysicsComponent.cpp" />
+    <ClCompile Include="Components\SpriteAnimComponent.cpp" />
     <ClCompile Include="Components\SpriteComponent.cpp" />
+    <ClCompile Include="Components\TextComponent.cpp" />
     <ClCompile Include="Core\File.cpp" />
     <ClCompile Include="Core\Logger.cpp" />
     <ClCompile Include="Core\Memory.cpp" />
@@ -183,6 +188,8 @@
     <ClCompile Include="Math\Matrix3x3.cpp" />
     <ClCompile Include="Math\Transform.cpp" />
     <ClCompile Include="Math\Vector2.cpp" />
+    <ClCompile Include="Physics\ContactListener.cpp" />
+    <ClCompile Include="Physics\PhysicsSystem.cpp" />
     <ClCompile Include="Renderer\Font.cpp" />
     <ClCompile Include="Renderer\Model.cpp" />
     <ClCompile Include="Renderer\Renderer.cpp" />
@@ -192,13 +199,18 @@
     <ClCompile Include="Serial\json.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Audio\AudioChannel.h" />
     <ClInclude Include="Audio\AudioSystem.h" />
     <ClInclude Include="Components\AudioComponent.h" />
+    <ClInclude Include="Components\CollisionComponent.h" />
     <ClInclude Include="Components\ModelComponent.h" />
     <ClInclude Include="Components\PhysicsComponent.h" />
     <ClInclude Include="Components\PlayerComponent.h" />
+    <ClInclude Include="Components\rbPhysicsComponent.h" />
     <ClInclude Include="Components\RendererComponent.h" />
+    <ClInclude Include="Components\SpriteAnimComponent.h" />
     <ClInclude Include="Components\SpriteComponent.h" />
+    <ClInclude Include="Components\TextComponent.h" />
     <ClInclude Include="Core\File.h" />
     <ClInclude Include="Core\Logger.h" />
     <ClInclude Include="Core\Memory.h" />
@@ -217,9 +229,13 @@
     <ClInclude Include="Math\Matrix2x2.h" />
     <ClInclude Include="Math\Matrix3x3.h" />
     <ClInclude Include="Math\Random.h" />
+    <ClInclude Include="Math\Rect.h" />
     <ClInclude Include="Math\Transform.h" />
     <ClInclude Include="Math\Vector2.h" />
     <ClInclude Include="Math\Vector3.h" />
+    <ClInclude Include="Physics\Collision.h" />
+    <ClInclude Include="Physics\ContactListener.h" />
+    <ClInclude Include="Physics\PhysicsSystem.h" />
     <ClInclude Include="Renderer\Font.h" />
     <ClInclude Include="Renderer\Model.h" />
     <ClInclude Include="Renderer\Renderer.h" />

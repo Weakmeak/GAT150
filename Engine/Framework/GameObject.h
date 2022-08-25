@@ -2,6 +2,8 @@
 #include "../Math/Transform.h"
 
 #define REGISTER_CLASS(class) Factory::Instance().Register<class>(#class);
+#define CLASS_DECLARATION(class) \
+	std::unique_ptr<GameObject> Clone() override { return std::make_unique<class>(*this); }
 namespace digi 
 {
 	class GameObject 
@@ -10,9 +12,10 @@ namespace digi
 			GameObject() = default;
 			~GameObject() = default;
 
-			float getSpeed() {}
+			virtual std::unique_ptr<GameObject> Clone() = 0;
 
 			virtual void Update() = 0;
+			virtual void Initialize() = 0;
 		protected:
 	};
 }

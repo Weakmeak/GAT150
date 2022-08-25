@@ -11,6 +11,7 @@ namespace FMOD
 
 namespace digi
 {
+	class AudioChannel;
 	class AudioSystem
 	{
 	public:
@@ -23,7 +24,7 @@ namespace digi
 		void Update();
 
 		void AddAudio(const std::string& name, const std::string& filename);
-		void PlayAudio(const std::string& name);
+		AudioChannel PlayAudio(const std::string& name, float volume = 1, float pitch = 1, bool loop = false);
 
 	private:
 		FMOD::System* m_fmodSystem = nullptr;

@@ -23,7 +23,7 @@ namespace digi {
 		string model_name;
 		READ_DATA(value, model_name);
 
-		m_verts = g_ResMan.Get<Model>(model_name);
+		m_verts = g_Resource.Get<Model>(model_name);
 		return true;
 	}
 }

@@ -1,5 +1,6 @@
 #include "Renderer.h" 
 #include "Math/Transform.h"
+#include "Math/Rect.h"
 #include <SDL.h> 
 #include <SDL_ttf.h> 
 #include <SDL_image.h>
@@ -91,6 +92,32 @@ namespace digi
 		SDL_Point center{ (int)origin.x, (int)origin.y };
 
 		SDL_RenderCopyEx(m_renderer, texture->m_texture, nullptr, &dest, trans.rotation, &center, SDL_FLIP_NONE);
+	}
+
+	void Renderer::Draw(std::shared_ptr<Texture> texture, const Rect& source, const Transform& trans, const Vector2& registration)
+	{
+		Vector2 size = {source.w, source.h};
+		size *= trans.scale;
+
+		Vector2 origin = size * registration;
+		Vector2 tPos = trans.position - origin;
+
+		SDL_Rect dest;
+		// !! make sure to cast to int to prevent compiler warnings 
+		dest.x = (int)tPos.x;
+		dest.y = (int)tPos.y;
+		dest.w = (int)size.x;
+		dest.h = (int)size.y;
+
+		SDL_Point center{ (int)origin.x, (int)origin.y };
+
+		SDL_Rect src;
+		src.x = source.x;
+		src.y = source.y;
+		src.w = source.w;
+		src.h = source.h;
+
+		SDL_RenderCopyEx(m_renderer, texture->m_texture, &src, &dest, trans.rotation, &center, SDL_FLIP_NONE);
 	}
 
 	void Renderer::Initialize()

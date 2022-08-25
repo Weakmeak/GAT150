@@ -8,6 +8,8 @@ namespace digi {
 	public:
 		void Draw(Renderer& ren) override;
 		void Update() override;
+
+		CLASS_DECLARATION(ModelComponent);
 		
 		// Inherited via RendererComponnent
 		virtual bool Write(const rapidjson::Value& value) const override;

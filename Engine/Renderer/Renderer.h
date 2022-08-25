@@ -9,6 +9,7 @@ struct SDL_Window;
 namespace digi {
 
 	struct Transform;
+	struct Rect;
 	class Renderer {
 		public:
 			Renderer() = default;
@@ -29,6 +30,7 @@ namespace digi {
 
 			void Draw(std::shared_ptr<Texture> texture, const Vector2& position, float angle = 0, const Vector2& scale = 1, const Vector2& registration = 0.5);
 			void Draw(std::shared_ptr<Texture> texture, const Transform& trans, const Vector2& registration = 0.5);
+			void Draw(std::shared_ptr<Texture> texture, const Rect& rect, const Transform& trans, const Vector2& registration = 0.5);
 
 
 			int getWindowWidth() { return m_width; }

@@ -7,6 +7,7 @@
 #include "Math/MathUtils.h"
 #include "Math/Vector2.h"
 #include "Math/Random.h"
+#include "Math/Rect.h"
 
 #include "Core/Memory.h"
 #include "Core/File.h"
@@ -31,7 +32,13 @@
 #include "Components/SpriteComponent.h"
 #include "Components/AudioComponent.h"
 #include "Components/PhysicsComponent.h"
+#include "Components/rbPhysicsComponent.h"
 #include "Components/ModelComponent.h"
+#include "Components/SpriteAnimComponent.h"
+#include "Components/CollisionComponent.h"
+#include "Components/TextComponent.h"
+
+#include "Physics/PhysicsSystem.h"
 
 #include <memory>
 
@@ -40,7 +47,8 @@ namespace digi {
 	extern Renderer g_Ren;
 	extern Time g_Time;
 	extern AudioSystem g_Sound;
-	extern ResourceManager g_ResMan;
+	extern ResourceManager g_Resource;
+	extern PhysicsSystem g_Physics;
 
 	class Engine : public Singleton<Engine>
 	{

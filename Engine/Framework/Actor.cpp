@@ -4,6 +4,29 @@
 #include "Factory.h"
 
 namespace digi {
+	void Actor::Initialize()
+	{
+		for (auto& comp : m_components) {
+			comp->Initialize();
+		}
+		for (auto& child : m_children) {
+			child->Initialize();
+		}
+	}
+
+	Actor::Actor(const Actor& other)
+	{
+		name = other.name;
+		tag = other.tag;
+		m_scene = other.m_scene;
+
+		for (auto& comp : other.m_components) {
+			auto temp = std::unique_ptr<Component>((Component*)comp->Clone().release());
+			addComponent(std::move(temp));
+		}
+
+	}
+
 	void Actor::Update()
 	{
 		for (auto& comp : m_components) {
@@ -15,6 +38,7 @@ namespace digi {
 		if (m_parent) { m_trans.Update(m_parent->m_trans.matrix); }
 		m_trans.Update();
 	}
+
 	void digi::Actor::Draw(Renderer ren)
 	{
 		//m_model.Draw(ren, m_trans.position, m_trans.rotation, m_trans.scale);
@@ -61,7 +85,7 @@ namespace digi {
 			}
 		}
 
-		m_trans.Read(value["transform"]);
+		if (value.HasMember("transform")) m_trans.Read(value["transform"]);
 		return true;
 	}
 }

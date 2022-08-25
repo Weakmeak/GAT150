@@ -11,16 +11,21 @@ namespace digi {
 	class Renderer; //forward declaration
 	class Game;
 
-	class Scene : public ISerializable{
+	class Scene : public ISerializable, public GameObject{
 		public:
 			Scene() = default;
 			Scene(Game* game) { m_game = game; }
 			~Scene() = default;
+			Scene(const Scene& other) {};
 
-			void Update();
+			CLASS_DECLARATION(Scene);
+
+			void Update() override;
+			void Initialize() override;
 			void Draw(Renderer& ren);
 
 			void Add(std::unique_ptr<Actor> actor);
+			void RemoveAll();
 
 			template<typename T>
 			T* GetActor();

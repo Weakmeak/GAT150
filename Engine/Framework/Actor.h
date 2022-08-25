@@ -16,10 +16,14 @@ namespace digi {
 	class Actor : public GameObject, public ISerializable {
 		public:
 			Actor() = default;
+			Actor(const Actor& other);
 			Actor(const Transform& trnsf) { m_trans = trnsf; }
 			~Actor() = default;
 
+			CLASS_DECLARATION(Actor);
+
 			virtual void Update() override;
+			virtual void Initialize() override;
 			virtual void Draw(Renderer ren);
 
 			void addComponent(unique_ptr<Component> component);
