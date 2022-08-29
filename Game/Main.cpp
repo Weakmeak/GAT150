@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Engine.h"
+#include "GameFinal.h"
 
 using namespace digi;
 using namespace std;
@@ -18,17 +19,9 @@ int main() {
 	g_Physics.Initialize();
 	g_Ren.CreateWindow(800, 600, "Window");
 
-	Scene scene;
-	rapidjson::Document doc;
-	bool success = json::Load("Level.txt", doc);
-	scene.Read(doc);
-	scene.Initialize();
+	unique_ptr<MyGame> game = make_unique<MyGame>();
 
-	auto actor = Factory::Instance().Create<Actor>("Coin");
-	actor->GetTransform().position = { 600, 100 };
-	actor->Initialize();
-
-	scene.Add(std::move(actor));
+	game->Initialize();
 
 	bool quit = false;
 	while (!quit) {
@@ -37,17 +30,19 @@ int main() {
 		g_Sound.Update();
 		g_Physics.Update();
 
-		scene.Update();
+		game->Update();
 
 		g_Ren.BeginFrame();
 
-		scene.Draw(g_Ren);
+		game->Draw(g_Ren);
 
 		g_Ren.EndFrame();
 		quit = g_Input.GetKeyDown(key_escape);
 	}
 
-	scene.RemoveAll();
+	game->Shutdown();
+	game.reset();
+	Factory::Instance().Shutdown();
 
 	g_Physics.Shutdown();
 	g_Resource.Shutdown();

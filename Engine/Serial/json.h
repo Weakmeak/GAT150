@@ -1,6 +1,7 @@
 #pragma once 
 #include "rapidjson/document.h" 
 #include <string> 
+#include <vector> 
 
 #define READ_DATA(value, data) digi::json::Get(value, #data, data)
 
@@ -20,5 +21,7 @@ namespace digi
 		bool Get(const rapidjson::Value& value, const std::string& name, Vector2& data);
 		bool Get(const rapidjson::Value& value, const std::string& name, Color& data);
 		bool Get(const rapidjson::Value& value, const std::string& name, Rect& data);
+		bool Get(const rapidjson::Value& value, const std::string& name, std::vector<std::string>& data);
+		bool Get(const rapidjson::Value& value, const std::string& name, std::vector<int>& data);
 	}
 }

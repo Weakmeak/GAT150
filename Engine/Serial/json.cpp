@@ -173,5 +173,58 @@ namespace digi {
 
 			return true;
 		}
+		bool Get(const rapidjson::Value& value, const std::string& name, std::vector<std::string>& data)
+		{
+			if (!value.HasMember(name.c_str())) return false;
+
+			if (value[name.c_str()].IsArray() == false)
+			{
+				LOG("error reading json data %s", name.c_str());
+				return false;
+
+			}
+
+			// create json array object 
+			auto& array = value[name.c_str()];
+			// get array values 
+			for (rapidjson::SizeType i = 0; i < array.Size(); i++)
+			{
+				if (!array[i].IsString())
+				{
+					LOG("error reading json data (not a string) %s", name.c_str());
+					return false;
+				}
+				data.push_back(array.GetString());
+			}
+
+			return true;
+		}
+		
+		bool Get(const rapidjson::Value& value, const std::string& name, std::vector<int>& data)
+		{
+			if (!value.HasMember(name.c_str())) return false;
+
+			if (value[name.c_str()].IsArray() == false)
+			{
+				LOG("error reading json data %s", name.c_str());
+				return false;
+
+			}
+
+			// create json array object 
+			auto& array = value[name.c_str()];
+			// get array values 
+			for (rapidjson::SizeType i = 0; i < array.Size(); i++)
+			{
+				if (!array[i].IsInt())
+				{
+					LOG("error reading json data (not a number) %s", name.c_str());
+					return false;
+				}
+				data.push_back(array.GetInt());
+			}
+
+			return true;
+		}
 	}
 }

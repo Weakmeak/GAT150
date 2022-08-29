@@ -70,6 +70,7 @@ namespace digi {
 	{
 		READ_DATA(value, tag);
 		READ_DATA(value, name);
+		READ_DATA(value, active);
 
 		if (value.HasMember("components") && value["components"].IsArray()) {
 			//read components

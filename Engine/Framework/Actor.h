@@ -35,6 +35,14 @@ namespace digi {
 			const std::string& GetName() { return name; };
 			void SetName(const std::string& n) { name = n; };
 
+			const bool isActive() { return active; };
+			void SetActive(const bool& activ) { active = activ; };
+			void SetActive() { active = true; };
+
+			const bool isDestroyed() { return destroyed; };
+			void SetDestroyed(const bool& dest) { destroyed = dest; };
+			void SetDestroyed() { destroyed = true; };
+
 			virtual void OnCollision(Actor* other) {};
 			Transform& GetTransform() { return m_trans; }
 
@@ -47,10 +55,13 @@ namespace digi {
 			virtual bool Write(const rapidjson::Value& value) const override;
 			virtual bool Read(const rapidjson::Value& value) override;
 
+			Scene* GetScene() { return m_scene; }
+
 			friend class Scene;
 
 		protected:
 			bool destroyed = false;
+			bool active = true;
 
 			Transform m_trans;
 			std::string tag = "";

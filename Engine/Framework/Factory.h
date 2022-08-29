@@ -3,12 +3,15 @@
 #include <map>
 #include <string>
 #include "Framework/Singleton.h"
+#include "Core/Logger.h"
 
 namespace digi {
 
 	class GameObject;
 	class CreatorBase {
 		public:
+			virtual ~CreatorBase() = default;
+
 			virtual std::unique_ptr<GameObject> Create() = 0;
 	};
 
@@ -26,6 +29,10 @@ namespace digi {
 			Factory() = default;
 			~Factory() = default;
 
+			void Shutdown() {
+				m_registry.clear();
+			}
+
 			template <typename T>
 			void Register(const std::string& key);
 
@@ -42,6 +49,7 @@ namespace digi {
 	template <typename T>
 	class PrefabCreator : public CreatorBase {
 		public:
+			~PrefabCreator() = default;
 			PrefabCreator(std::unique_ptr<T> instance) : m_instance{ std::move(instance) } {}
 
 			std::unique_ptr<GameObject> Create() override {
@@ -83,6 +91,7 @@ namespace digi {
 			return std::unique_ptr<T>(dynamic_cast<T*>(iter->second->Create().release()));
 		}
 
+		LOG("ERROR: NO KEY %s", key.c_str());
 		return std::unique_ptr<T>();
 	}
 }

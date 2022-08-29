@@ -11,8 +11,8 @@ namespace digi {
 
 
 		if (fixtureA->GetUserData().pointer && fixtureA->GetUserData().pointer) {
-			Actor* actA = (Actor*)fixtureA;
-			Actor* actB = (Actor*)fixtureB;
+			Actor* actA = (Actor*)fixtureA->GetUserData().pointer;
+			Actor* actB = (Actor*)fixtureB->GetUserData().pointer;
 			std::cout << "touching" << std::endl;
 			//std::cout << actA->GetName() << " LINE 2 IS RUNNING" << std::endl;
 			std::cout << "e.\n";
