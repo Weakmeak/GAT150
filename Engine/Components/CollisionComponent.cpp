@@ -7,6 +7,15 @@ namespace digi {
     {
         auto comp = m_owner->GetComponent<rbPhysicsComponent>();
         if (comp) {
+            // if data was not set, get size from render component source rect 
+            if (data.size.x == 0 && data.size.y == 0)
+                {
+                    auto renderComponent = m_owner->GetComponent<RendererComponent>();
+                    if (renderComponent)
+                    {
+                        data.size = Vector2{renderComponent->GetSource().w,renderComponent->GetSource().h};
+                    }
+                }
             g_Physics.SetCollisionBox(comp->m_body, data, m_owner);
         }
     }

@@ -84,11 +84,7 @@
 					"data.constrain_angle":true
 				},
 				{
-					"type":"CollisionComponent",
-					"data.size":[
-						80,
-						80
-					]
+					"type":"CollisionComponent"
 				},
 				{
 					"type":"AudioComponent",
@@ -134,11 +130,7 @@
 				},
 				{
 					"type":"CollisionComponent",
-					"data.restitution":0.7,
-					"data.size":[
-						48,
-						48
-					]
+					"data.restitution":0.7
 				},
 				{
 					"type":"SpriteAnimComponent",

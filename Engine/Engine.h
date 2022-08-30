@@ -25,6 +25,7 @@
 #include "Framework/Game.h"
 #include "Framework/Singleton.h"
 #include "Framework/Factory.h"
+#include "Framework/EventManager.h"
 
 #include "Audio/AudioSystem.h"
 
@@ -49,6 +50,7 @@ namespace digi {
 	extern AudioSystem g_Sound;
 	extern ResourceManager g_Resource;
 	extern PhysicsSystem g_Physics;
+	extern EventManager g_Events;
 
 	class Engine : public Singleton<Engine>
 	{

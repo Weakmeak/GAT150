@@ -16,10 +16,10 @@ namespace digi {
 			std::cout << "touching" << std::endl;
 			//std::cout << actA->GetName() << " LINE 2 IS RUNNING" << std::endl;
 			std::cout << "e.\n";
-			if (actA->GetComponent<CollisionComponent>()) {
+			if (!actA->isDestroyed() && actA->GetComponent<CollisionComponent>()) {
 				actA->GetComponent<CollisionComponent>()->OnCollisionEnter(actB);
 			}
-			if (actB->GetComponent<CollisionComponent>()) {
+			if (!actB->isDestroyed() && actB->GetComponent<CollisionComponent>()) {
 				actB->GetComponent<CollisionComponent>()->OnCollisionEnter(actA);
 			}
 		}
@@ -35,10 +35,10 @@ namespace digi {
 			Actor* actA = (Actor*)fixtureA;
 			Actor* actB = (Actor*)fixtureB;
 
-			if (actA->GetComponent<CollisionComponent>()) {
+			if (!actA->isDestroyed() && actA->GetComponent<CollisionComponent>()) {
 				actA->GetComponent<CollisionComponent>()->OnCollisionExit(actB);
 			}
-			if (actB->GetComponent<CollisionComponent>()) {
+			if (!actB->isDestroyed() && actB->GetComponent<CollisionComponent>()) {
 				actB->GetComponent<CollisionComponent>()->OnCollisionExit(actA);
 			}
 		}

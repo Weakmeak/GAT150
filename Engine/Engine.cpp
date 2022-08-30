@@ -7,6 +7,7 @@ namespace digi {
 	AudioSystem g_Sound;
 	ResourceManager g_Resource;
 	PhysicsSystem g_Physics;
+	EventManager g_Events;
 
 	void Engine::Register()
 	{

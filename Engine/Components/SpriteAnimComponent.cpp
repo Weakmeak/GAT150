@@ -6,7 +6,7 @@
 namespace digi {
 	void digi::SpriteAnimComponent::Draw(Renderer& ren)
 	{
-		ren.Draw(m_tex, source, m_owner->GetTransform());
+		ren.Draw(m_tex, GetSource(), m_owner->GetTransform());
 	}
 
 	void digi::SpriteAnimComponent::Update()
@@ -54,5 +54,21 @@ namespace digi {
 		READ_DATA(value, end_frame);
 
 		return true;
+	}
+
+	Rect& SpriteAnimComponent::GetSource()
+	{
+		// calculate source rect 
+		Vector2 cellSize = m_tex->GetSize() / Vector2{ num_columns, num_rows };
+
+		int column = (frame - 1) % num_columns;
+		int row = (frame - 1) / num_columns;
+
+		source.x = (int)(column * cellSize.x);
+		source.y = (int)(row * cellSize.y);
+		source.w = (int)(cellSize.x);
+		source.h = (int)(cellSize.y);
+
+		return source;
 	}
 }

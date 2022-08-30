@@ -11,6 +11,8 @@ namespace digi {
 
 		CLASS_DECLARATION(SpriteAnimComponent);
 
+		Rect& GetSource() override;
+
 		// Inherited via RendererComponnent
 		virtual bool Write(const rapidjson::Value& value) const override;
 		virtual bool Read(const rapidjson::Value& value) override;

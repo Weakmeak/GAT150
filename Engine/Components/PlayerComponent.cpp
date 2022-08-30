@@ -66,6 +66,11 @@ namespace digi {
 	}
 	void PlayerComponent::OnCollisionEnter(Actor* other)
 	{
+		Event eve;
+		eve.name = "AddPoints";
+		eve.data = 100;
+
+		g_Events.Notify(eve);
 		std::cout << "player" << endl;
 	}
 	void PlayerComponent::OnCollisionExit(Actor* other)

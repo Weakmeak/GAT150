@@ -35,8 +35,9 @@ namespace digi {
 		{
 			// check if 'name' member exists and is of type 
 
-			if (value.HasMember(name.c_str()) == false || value[name.c_str()].IsInt() ==
-				false)
+			if (!value.HasMember(name.c_str())) return false;
+
+			if (!value[name.c_str()].IsInt())
 			{
 				LOG("error reading json data %s", name.c_str());
 				return false;
@@ -51,7 +52,9 @@ namespace digi {
 		{
 			// check if 'name' member exists and is of type 
 
-			if (value.HasMember(name.c_str()) == false || value[name.c_str()].IsNumber() == false)
+			if (!value.HasMember(name.c_str())) return false;
+
+			if (!value[name.c_str()].IsNumber())
 			{
 				LOG("error reading json data %s", name.c_str());
 				return false;
@@ -62,13 +65,13 @@ namespace digi {
 
 			return true;
 		}
-
 		bool Get(const rapidjson::Value& value, const std::string& name, bool& data)
 		{
 			// check if 'name' member exists and is of type 
 
-			if (value.HasMember(name.c_str()) == false || value[name.c_str()].IsBool() ==
-				false)
+			if (!value.HasMember(name.c_str())) return false;
+
+			if (!value[name.c_str()].IsBool())
 			{
 				LOG("error reading json data %s", name.c_str());
 				return false;
@@ -83,8 +86,9 @@ namespace digi {
 		{
 			// check if 'name' member exists and is of type 
 
-			if (value.HasMember(name.c_str()) == false || value[name.c_str()].IsString() ==
-				false)
+			if (!value.HasMember(name.c_str())) return false;
+
+			if (!value[name.c_str()].IsString())
 			{
 				LOG("error reading json data %s", name.c_str());
 				return false;
@@ -98,7 +102,10 @@ namespace digi {
 		bool Get(const rapidjson::Value& value, const std::string& name, Vector2& data)
 		{
 			// check if 'name' member exists and is an array with 2 elements 
-			if (value.HasMember(name.c_str()) == false || value[name.c_str()].IsArray() == false || value[name.c_str()].Size() != 2)
+
+			if (!value.HasMember(name.c_str())) return false;
+
+			if (!value[name.c_str()].IsArray() || value[name.c_str()].Size() != 2)
 			{
 				LOG("error reading json data %s", name.c_str());
 				return false;
@@ -130,7 +137,9 @@ namespace digi {
 		bool Get(const rapidjson::Value& value, const std::string& name, Color& data)
 		{
 			// check if 'name' member exists and is an array with 2 elements 
-			if (value.HasMember(name.c_str()) == false || value[name.c_str()].IsArray() == false || value[name.c_str()].Size() != 4)
+			if (!value.HasMember(name.c_str())) return false;
+
+			if (!value[name.c_str()].IsArray() || value[name.c_str()].Size() != 4)
 			{
 				LOG("error reading json data %s", name.c_str());
 				return false;
@@ -155,7 +164,9 @@ namespace digi {
 		bool Get(const rapidjson::Value& value, const std::string& name, Rect& data)
 		{
 			// check if 'name' member exists and is an array with 2 elements 
-			if (value.HasMember(name.c_str()) == false || value[name.c_str()].IsArray() == false || value[name.c_str()].Size() != 4)
+			if (!value.HasMember(name.c_str())) return false;
+
+			if (!value[name.c_str()].IsArray() || value[name.c_str()].Size() != 4)
 			{
 				LOG("error reading json data %s", name.c_str());
 				return false;
@@ -199,7 +210,6 @@ namespace digi {
 
 			return true;
 		}
-		
 		bool Get(const rapidjson::Value& value, const std::string& name, std::vector<int>& data)
 		{
 			if (!value.HasMember(name.c_str())) return false;
