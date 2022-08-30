@@ -26,6 +26,8 @@ namespace digi {
 			virtual void Update() override;
 		private:
 			PhysicsSystem::CollisionData data;
+
+			Vector2 scaleOffset{ 1,1 };
 			funcPtr m_enterFunction;
 			funcPtr m_exitFunction;
 

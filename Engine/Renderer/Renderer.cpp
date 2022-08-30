@@ -94,9 +94,9 @@ namespace digi
 		SDL_RenderCopyEx(m_renderer, texture->m_texture, nullptr, &dest, trans.rotation, &center, SDL_FLIP_NONE);
 	}
 
-	void Renderer::Draw(std::shared_ptr<Texture> texture, const Rect& source, const Transform& trans, const Vector2& registration)
+	void Renderer::Draw(std::shared_ptr<Texture> texture, const Rect& source, const Transform& trans, const Vector2& registration, bool flipH)
 	{
-		Vector2 size = {source.w, source.h};
+		Vector2 size = { source.w, source.h };
 		size *= trans.scale;
 
 		Vector2 origin = size * registration;
@@ -117,9 +117,8 @@ namespace digi
 		src.w = source.w;
 		src.h = source.h;
 
-		SDL_RenderCopyEx(m_renderer, texture->m_texture, &src, &dest, trans.rotation, &center, SDL_FLIP_NONE);
+		SDL_RenderCopyEx(m_renderer, texture->m_texture, &src, &dest, trans.rotation, &center, (flipH) ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
 	}
-
 	void Renderer::Initialize()
 	{
 		SDL_Init(SDL_INIT_VIDEO);

@@ -6,7 +6,7 @@
 namespace digi {
 	void SpriteComponent::Draw(Renderer& ren)
 	{
-		ren.Draw(m_tex, GetSource(), m_owner->GetTransform());
+		ren.Draw(m_tex, GetSource(), m_owner->GetTransform(), registration, flipHorizontal);
 	}
 
 	void SpriteComponent::Update()

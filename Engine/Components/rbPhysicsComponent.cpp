@@ -10,8 +10,9 @@ namespace digi {
 	{
 		Vector2 pos = B2VEC2_TO_VECTOR2(m_body->GetPosition());
 		m_owner->GetTransform().position = PhysicsSystem::WorldToScreen(pos);
-		m_owner->GetTransform().rotation = m_body->GetAngle();
+		m_owner->GetTransform().rotation = Math::RadToDeg(m_body->GetAngle());
 
+		Velocity = B2VEC2_TO_VECTOR2(m_body->GetLinearVelocity());
 	}
 	void rbPhysicsComponent::Initialize()
 	{

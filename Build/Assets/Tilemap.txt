@@ -23,7 +23,7 @@
 					]
 				},
 				{
-					"type":"RBPhysicsComponent",
+					"type":"rbPhysicsComponent",
 					"data.is_dynamic":false
 				},
 				{
@@ -58,7 +58,7 @@
 					]
 				},
 				{
-					"type":"RBPhysicsComponent",
+					"type":"rbPhysicsComponent",
 					"data.is_dynamic":false
 				},
 				{

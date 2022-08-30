@@ -1,9 +1,10 @@
 #pragma once
 #include "Framework/Component.h"
 #include "Physics/Collision.h"
+#include "CharacterComponent.h"
 
 namespace digi {
-	class PlayerComponent : public Component, public iCollision {
+	class PlayerComponent : public CharacterComponent {
 		public:
 			PlayerComponent() = default;
 
@@ -20,6 +21,7 @@ namespace digi {
 			virtual void OnCollisionEnter(Actor* other) override;
 			virtual void OnCollisionExit(Actor* other) override;
 
+			virtual void OnNotify(const Event& event) override;
 		private:
 			float speed = 300;
 

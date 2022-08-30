@@ -38,6 +38,8 @@
 #include "Components/SpriteAnimComponent.h"
 #include "Components/CollisionComponent.h"
 #include "Components/TextComponent.h"
+#include "Components/CharacterComponent.h"
+#include "Components/TilemapComponent.h"
 
 #include "Physics/PhysicsSystem.h"
 

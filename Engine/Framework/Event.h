@@ -14,4 +14,10 @@ namespace digi {
 			GameObject* receiver = nullptr;
 			std::variant<int, bool, float, std::string> data;
 	};
+
+	class INotify
+	{
+	public:
+		virtual void OnNotify(const Event& event) = 0;
+	};
 }

@@ -13,13 +13,13 @@ namespace digi {
 		if (fixtureA->GetUserData().pointer && fixtureA->GetUserData().pointer) {
 			Actor* actA = (Actor*)fixtureA->GetUserData().pointer;
 			Actor* actB = (Actor*)fixtureB->GetUserData().pointer;
-			std::cout << "touching" << std::endl;
-			//std::cout << actA->GetName() << " LINE 2 IS RUNNING" << std::endl;
-			std::cout << "e.\n";
-			if (!actA->isDestroyed() && actA->GetComponent<CollisionComponent>()) {
+
+			if (actA->isDestroyed() || actB->isDestroyed()) return;
+
+			if (actA->GetComponent<CollisionComponent>()) {
 				actA->GetComponent<CollisionComponent>()->OnCollisionEnter(actB);
 			}
-			if (!actB->isDestroyed() && actB->GetComponent<CollisionComponent>()) {
+			if (actB->GetComponent<CollisionComponent>()) {
 				actB->GetComponent<CollisionComponent>()->OnCollisionEnter(actA);
 			}
 		}
@@ -35,10 +35,12 @@ namespace digi {
 			Actor* actA = (Actor*)fixtureA;
 			Actor* actB = (Actor*)fixtureB;
 
-			if (!actA->isDestroyed() && actA->GetComponent<CollisionComponent>()) {
+			if (actA->isDestroyed() || actB->isDestroyed()) return;
+
+			if (actA->GetComponent<CollisionComponent>()) {
 				actA->GetComponent<CollisionComponent>()->OnCollisionExit(actB);
 			}
-			if (!actB->isDestroyed() && actB->GetComponent<CollisionComponent>()) {
+			if (actB->GetComponent<CollisionComponent>()) {
 				actB->GetComponent<CollisionComponent>()->OnCollisionExit(actA);
 			}
 		}

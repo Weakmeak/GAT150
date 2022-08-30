@@ -1,14 +1,17 @@
 #include "GameFinal.h"
 #include "Engine.h"
+#include "GameComponents/EnemyComponent.h"
 
 using namespace digi;
 
 void MyGame::Initialize()
 {
+	REGISTER_CLASS(EnemyComponent);
+
 	m_scene = std::make_unique<digi::Scene>();
 	rapidjson::Document doc;
 
-	std::vector<std::string> sceneNames = { "level.txt" };
+	std::vector<std::string> sceneNames = { "level.txt", "Tilemap.txt" };
 
 	for (auto scene : sceneNames) {
 

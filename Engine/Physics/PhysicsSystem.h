@@ -40,6 +40,7 @@ namespace digi
 			static Vector2 ScreenToWorld(const Vector2& screen) { return screen * (1.0f / pixelsPerUnit); }
 
 			void SetCollisionBox(b2Body* body, const CollisionData& data, class Actor* actor = nullptr);
+			void SetCollisionBoxStatic(b2Body* body, const CollisionData& data, class Actor* actor = nullptr);
 
 		private:
 
