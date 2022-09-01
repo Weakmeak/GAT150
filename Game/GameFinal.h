@@ -20,4 +20,7 @@ class MyGame : public digi::Game {
 		GameState currState;
 		int score;
 		float lifeTimer = 0;
+		float spawnTimer = 0;
+		int spawnNumber = 1;
+		float offset = 0;
 };

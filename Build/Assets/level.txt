@@ -296,6 +296,56 @@
 					]
 				}
 			]
+		},
+		{
+			"type":"Actor",
+			"name":"GameOver",
+			"active":false,
+			"transform":{
+				"position":[
+					400,
+					300
+				],
+				"scale":[
+					1,
+					1
+				],
+				"rotation":0
+			},
+			"components":[
+				{
+					"type":"TextComponent",
+					"text":"--GAME OVER--",
+					"font_name":"fonts/monogram-extended.ttf",
+					"font_size":96,
+					"registration":[
+						0.5,
+						1.0
+					],
+					"color":[
+						255,
+						0,
+						0,
+						255
+					]
+				},
+				{
+					"type":"TextComponent",
+					"text":"Press [SPACE] to restart",
+					"font_name":"fonts/monogram-extended.ttf",
+					"font_size":24,
+					"registration":[
+						0.5,
+						0.0
+					],
+					"color":[
+						255,
+						0,
+						0,
+						255
+					]
+				}
+			]
 		}
 	]
 }

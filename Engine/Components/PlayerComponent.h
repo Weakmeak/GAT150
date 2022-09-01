@@ -22,7 +22,7 @@ namespace digi {
 			virtual void OnCollisionExit(Actor* other) override;
 
 			virtual void OnNotify(const Event& event) override;
-			int life = 5;
+			int life = 15;
 		private:
 			float speed = 300;
 

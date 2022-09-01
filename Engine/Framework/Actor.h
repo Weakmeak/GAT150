@@ -70,6 +70,7 @@ namespace digi {
 			Actor* m_parent = nullptr;
 			Vector2 m_velocity;
 			float m_damping = 1;
+			float lifespan = 0;
 
 			vector<unique_ptr<Component>> m_components;
 			vector<unique_ptr<Actor>> m_children;

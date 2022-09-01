@@ -8,6 +8,9 @@ namespace digi {
 	void PlayerComponent::Initialize()
 	{
 		CharacterComponent::Initialize();
+
+		g_Sound.AddAudio("audio/ouch.wav", "audio/ouch.wav");
+		g_Sound.AddAudio("audio/coin.wav", "audio/coin.wav");
 	}
 	void PlayerComponent::Update()
 	{
@@ -75,8 +78,17 @@ namespace digi {
 			Event eve;
 			eve.name = "AddPoints";
 			eve.data = 100;
-
 			g_Events.Notify(eve);
+			g_Sound.PlayAudio("audio/coin.wav");
+
+			life += 2;
+			other->SetDestroyed(true);
+
+		}
+		if (other->GetName() == "BadCoin") {
+			g_Sound.PlayAudio("audio/ouch.wav");
+			life *= 0.67;
+			other->SetDestroyed(true);
 		}
 	}
 	void PlayerComponent::OnCollisionExit(Actor* other)

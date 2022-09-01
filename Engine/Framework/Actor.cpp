@@ -1,6 +1,7 @@
 #include "Actor.h"
 #include "Renderer/Renderer.h"
 #include "Components/RendererComponent.h"
+#include "Engine.h"
 #include "Factory.h"
 
 namespace digi {
@@ -19,6 +20,7 @@ namespace digi {
 		name = other.name;
 		tag = other.tag;
 		m_scene = other.m_scene;
+		lifespan = other.lifespan;
 
 		for (auto& comp : other.m_components) {
 			auto temp = std::unique_ptr<Component>((Component*)comp->Clone().release());
@@ -29,6 +31,17 @@ namespace digi {
 
 	void Actor::Update()
 	{
+		if (!active) return;
+		// LOG("Lifespan: %f", lifespan);
+		// update lifespan if lifespan is not 0 
+		if (lifespan != 0)
+		{
+			lifespan -= g_Time.deltaTime;
+			if (lifespan <= 0)
+			{
+				SetDestroyed(true);
+			}
+		}
 		for (auto& comp : m_components) {
 			comp->Update();
 		}
@@ -71,6 +84,7 @@ namespace digi {
 		READ_DATA(value, tag);
 		READ_DATA(value, name);
 		READ_DATA(value, active);
+		READ_DATA(value, lifespan);
 
 		if (value.HasMember("components") && value["components"].IsArray()) {
 			//read components
