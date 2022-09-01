@@ -61,7 +61,7 @@ namespace digi {
 	{
 		for (auto& act : m_actors)
 		{
-			if (name == act.GetName())
+			if (name == act->GetName())
 			{
 				return dynamic_cast<T*>(act.get());
 			}

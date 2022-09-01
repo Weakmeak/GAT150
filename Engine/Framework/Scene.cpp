@@ -25,7 +25,7 @@ namespace digi {
 	void Scene::Draw(Renderer& ren)
 	{
 		for (auto& act : m_actors) {
-			act->Draw(ren);
+			if (act->isActive()) act->Draw(ren);
 		}
 	}
 	void Scene::Add(std::unique_ptr<Actor> actor)

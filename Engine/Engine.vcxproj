@@ -256,7 +256,7 @@
   <ItemGroup>
     <Text Include="..\Build\Assets\json.txt" />
     <Text Include="..\Build\Assets\level.txt" />
-    <Text Include="..\Build\Assets\Tilemap.txt" />
+    <Text Include="..\Build\Assets\Prefabs.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

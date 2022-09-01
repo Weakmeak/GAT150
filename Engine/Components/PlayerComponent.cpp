@@ -49,13 +49,14 @@ namespace digi {
 		
 		auto renderComp = m_owner->GetComponent<RendererComponent>();
 		if (renderComp) {
-			renderComp->setFlipHorizontal((velocity.x < 0));
+			renderComp->setFlipHorizontal(!(velocity.x < 0));
 		}
 
 		Vector2 target = g_Input.GetMousePosition();
 		target -= m_owner->GetTransform().position;
 		m_owner->GetTransform().rotation = Math::RadToDeg(target.GetAngle());
 
+		if (life <= 0) m_owner->SetDestroyed(true);
 	}
 	bool PlayerComponent::Write(const rapidjson::Value& value) const
 	{
@@ -77,11 +78,10 @@ namespace digi {
 
 			g_Events.Notify(eve);
 		}
-		std::cout << "player" << endl;
 	}
 	void PlayerComponent::OnCollisionExit(Actor* other)
 	{
-		std::cout << "player" << endl;
+		//
 	}
 	void PlayerComponent::OnNotify(const Event& event)
 	{

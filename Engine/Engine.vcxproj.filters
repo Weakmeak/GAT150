@@ -312,7 +312,7 @@
     <Text Include="..\Build\Assets\level.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="..\Build\Assets\Tilemap.txt">
+    <Text Include="..\Build\Assets\Prefabs.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

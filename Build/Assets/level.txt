@@ -16,7 +16,7 @@
 			"components":[
 				{
 					"type":"SpriteComponent",
-					"sprite_name":"background.png"
+					"sprite_name":"space-bg.png"
 				}
 			]
 		},
@@ -26,7 +26,7 @@
 			"transform":{
 				"position":[
 					400,
-					540
+					605
 				],
 				"scale":[
 					1,
@@ -43,53 +43,92 @@
 					"type":"CollisionComponent",
 					"data.size":[
 						800,
-						24
+						10
 					]
 				}
 			]
 		},
 		{
 			"type":"Actor",
-			"name":"Player",
-			"tag":"Player",
+			"name":"Floor",
 			"transform":{
 				"position":[
 					400,
-					300
+					-5
 				],
 				"scale":[
-					2,
-					2
+					1,
+					1
 				],
 				"rotation":0
 			},
 			"components":[
 				{
-					"type":"PlayerComponent",
-					"speed":50
+					"type":"rbPhysicsComponent",
+					"data.is_dynamic":false
 				},
 				{
-					"type":"SpriteAnimComponent",
-					"sprite_name":"ghost-idle.png",
-					"fps":12,
-					"num_columns":7,
-					"num_rows":1,
-					"start_frame":1,
-					"end_frame":7
-				},
+					"type":"CollisionComponent",
+					"data.size":[
+						800,
+						10
+					]
+				}
+			]
+		},
+		{
+			"type":"Actor",
+			"name":"Wall",
+			"transform":{
+				"position":[
+					-5,
+					300
+				],
+				"scale":[
+					1,
+					1
+				],
+				"rotation":0
+			},
+			"components":[
 				{
 					"type":"rbPhysicsComponent",
-					"damping":0.8,
-					"data.gravity_scale":1,
-					"data.constrain_angle":true
+					"data.is_dynamic":false
 				},
 				{
-					"type":"CollisionComponent"
+					"type":"CollisionComponent",
+					"data.size":[
+						10,
+						600
+					]
+				}
+			]
+		},
+		{
+			"type":"Actor",
+			"name":"Wall",
+			"transform":{
+				"position":[
+					805,
+					300
+				],
+				"scale":[
+					1,
+					1
+				],
+				"rotation":0
+			},
+			"components":[
+				{
+					"type":"rbPhysicsComponent",
+					"data.is_dynamic":false
 				},
 				{
-					"type":"AudioComponent",
-					"soundName":"Audio/Laser_Shoot.wav",
-					"playOnWake":true
+					"type":"CollisionComponent",
+					"data.size":[
+						10,
+						600
+					]
 				}
 			]
 		},
@@ -145,11 +184,11 @@
 		},
 		{
 			"type":"Actor",
-			"name":"Text",
+			"name":"Score",
 			"transform":{
 				"position":[
-					40,
-					30
+					25,
+					25
 				],
 				"scale":[
 					1,
@@ -160,12 +199,94 @@
 			"components":[
 				{
 					"type":"TextComponent",
-					"text":"Hello World!",
+					"text":"Score: 0",
 					"font_name":"fonts/monogram-extended.ttf",
-					"font_size":16,
+					"font_size":48,
 					"registration":[
 						0.0,
 						0.5
+					],
+					"color":[
+						255,
+						255,
+						0,
+						255
+					]
+				}
+			]
+		},
+		{
+			"type":"Actor",
+			"name":"Life",
+			"transform":{
+				"position":[
+					775,
+					25
+				],
+				"scale":[
+					1,
+					1
+				],
+				"rotation":0
+			},
+			"components":[
+				{
+					"type":"TextComponent",
+					"text":"Life: 0",
+					"font_name":"fonts/monogram-extended.ttf",
+					"font_size":48,
+					"registration":[
+						1.0,
+						0.5
+					],
+					"color":[
+						255,
+						255,
+						0,
+						255
+					]
+				}
+			]
+		},
+		{
+			"type":"Actor",
+			"name":"Title",
+			"transform":{
+				"position":[
+					400,
+					300
+				],
+				"scale":[
+					1,
+					1
+				],
+				"rotation":0
+			},
+			"components":[
+				{
+					"type":"TextComponent",
+					"text":"GREEDY GHOUL",
+					"font_name":"fonts/monogram-extended.ttf",
+					"font_size":96,
+					"registration":[
+						0.5,
+						1.0
+					],
+					"color":[
+						255,
+						255,
+						0,
+						255
+					]
+				},
+				{
+					"type":"TextComponent",
+					"text":"Press [SPACE] to start.",
+					"font_name":"fonts/monogram-extended.ttf",
+					"font_size":24,
+					"registration":[
+						0.5,
+						0.0
 					],
 					"color":[
 						255,
