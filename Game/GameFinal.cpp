@@ -129,11 +129,11 @@ void MyGame::Update()
 				}
 
 				offset += 0.1f;
+				spawnTimer = 3.0f - offset;
 				if (offset > 2) {
 					spawnNumber++;
 					offset = 0;
 				}
-				spawnTimer = 3.0f - offset;
 			}
 			#pragma endregion
 
